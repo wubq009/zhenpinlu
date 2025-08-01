@@ -47,6 +47,7 @@ body {
     font-weight: 700;
     color: #1e3a8a;
     margin-left: -60px;
+    white-space: nowrap;
 }
 
 .nav-logo i {
@@ -58,13 +59,14 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
-    margin-left: 280px;
+    margin-left: 560px;
 }
 
 .nav-link {
     text-decoration: none;
     color: #374151;
     font-weight: 500;
+    font-size: 1rem;
     transition: color 0.3s ease;
     position: relative;
 }
@@ -88,6 +90,53 @@ body {
     width: 100%;
 }
 
+/* 下拉菜单样式 */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    min-width: 120px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    list-style: none;
+    padding: 4px 0;
+    margin: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 6px 12px;
+    color: #1e3a8a;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(30, 58, 138, 0.1);
+    color: #1e3a8a;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -104,22 +153,23 @@ body {
 
 /* 首页横幅 */
 .hero {
-    height: 70vh;
-    min-height: 350px;
-    max-height: 520px;
-    background: linear-gradient(rgba(248,250,252,0.7), rgba(248,250,252,0.7)), url('cityu.jpg');
-    background-size: cover;
-    background-position: center;
+    height: 65vh;
+    min-height: 400px;
+    max-height: 550px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
     max-width: 800px;
     padding: 0 20px;
     color: #374151;
+    position: relative;
+    z-index: 5;
 }
 
 .hero-title {
@@ -154,6 +204,60 @@ body {
     background: #1e40af;
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(30, 58, 138, 0.3);
+}
+
+/* Hero Carousel Styles */
+.hero-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-dot.active {
+    background: #1e3a8a;
+    transform: scale(1.2);
 }
 
 /* 课题组简介 */
@@ -800,7 +904,9 @@ body {
 
 /* 页脚 */
 .footer {
-    background: #1e3a8a;
+    background-image: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('cityu.jpg');
+    background-size: cover;
+    background-position: center 75%;
     color: white;
     padding: 20px 0 20px;
 }
@@ -828,7 +934,7 @@ body {
 
 .footer-section i {
     margin-right: 0.5rem;
-    color: #f59e0b;
+    color: white;
 }
 
 .footer-section ul {

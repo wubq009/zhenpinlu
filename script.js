@@ -13,6 +13,27 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', 
     navMenu.classList.remove('active');
 }));
 
+// 确保下拉菜单悬停正常工作
+document.querySelectorAll('.dropdown').forEach(dropdown => {
+    dropdown.addEventListener('mouseenter', () => {
+        const menu = dropdown.querySelector('.dropdown-menu');
+        if (menu) {
+            menu.style.opacity = '1';
+            menu.style.visibility = 'visible';
+            menu.style.transform = 'translateY(0)';
+        }
+    });
+    
+    dropdown.addEventListener('mouseleave', () => {
+        const menu = dropdown.querySelector('.dropdown-menu');
+        if (menu) {
+            menu.style.opacity = '0';
+            menu.style.visibility = 'hidden';
+            menu.style.transform = 'translateY(-10px)';
+        }
+    });
+});
+
 // 平滑滚动到锚点
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -310,6 +331,50 @@ function createBackToTopButton() {
 
 // 页面加载完成后创建返回顶部按钮
 document.addEventListener('DOMContentLoaded', createBackToTopButton);
+
+// 主页轮播功能
+function initHeroCarousel() {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    let currentIndex = 0;
+    let timer = null;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        currentIndex = index;
+    }
+
+    function nextSlide() {
+        showSlide((currentIndex + 1) % slides.length);
+    }
+
+    function startAutoPlay() {
+        if (timer) clearInterval(timer);
+        timer = setInterval(nextSlide, 4000); // 每4秒切换一次
+    }
+
+    // 点击圆点切换轮播
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            showSlide(i);
+            startAutoPlay();
+        });
+    });
+
+    // 初始化
+    if (slides.length > 0) {
+        showSlide(0);
+        startAutoPlay();
+    }
+}
+
+// 页面加载完成后初始化主页轮播
+document.addEventListener('DOMContentLoaded', initHeroCarousel);
 
 // 加载动画
 window.addEventListener('load', () => {

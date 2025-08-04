@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .nav-link {
+            font-size: 1.1rem !important;
+        }
+        .nav-menu {
+            margin-left: 485px !important;
+        }
+        .about-image {
+            margin-left: 15px !important;
+        }
+    </style>
 </head>
 <body>
     <!-- 导航栏 -->
@@ -19,13 +30,8 @@
                 <span>The Lu Group@CityU</span>
             </div>
             <ul class="nav-menu">
-                <li class="dropdown">
-                    <a href="#home" class="nav-link">Home</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#about">Introduction</a></li>
-                        <li><a href="boryl-research.html">Research</a></li>
-                    </ul>
-                </li>
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="boryl-research.html" class="nav-link">Research</a></li>
                 <li><a href="team.html" class="nav-link">Members</a></li>
                 <li><a href="publications.html" class="nav-link">Publications</a></li>
                 <li><a href="news.html" class="nav-link">News</a></li>
@@ -60,14 +66,14 @@
     </section>
 
     <!-- Research Group Introduction -->
-    <section id="about" class="about-section" style="margin-top: -60px;">
+    <section id="about" class="about-section" style="margin-top: -80px; margin-bottom: -40px;">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-content">
+            <div class="about-grid" style="margin-left: 40px; margin-top: 40px;">
+                <div class="about-content" style="width: 105%;">
                     <h1 style="text-align: left; margin-bottom: 40px; color: #1e3a8a; font-size: 1.8rem;">Research Introduction</h1>
-                    <p>Research in the Lu group involves various aspects of organic, organometallic, main-group, supramolecular, and materials chemistry. We aim to design and synthesize new main-group element-based compounds (with a particular interest in boron) that may have potential applications in organic synthesis, small molecular activation, catalysis, host-guest chemistry, and optoelectronic devices. We solve complicated problems, understand reaction mechanisms, and design new molecules through a combination of computation chemistry and experimental results.</p>
+                    <p style="margin-bottom: 10px;">Research in the Lu group involves various aspects of organic, organometallic, main-group, supramolecular, and materials chemistry. We aim to design and synthesize new main-group element-based compounds (with a particular interest in boron) that may have potential applications in organic synthesis, small molecular activation, catalysis, host-guest chemistry, and optoelectronic devices. We solve complicated problems, understand reaction mechanisms, and design new molecules through a combination of computation chemistry and experimental results.</p>
                 </div>
-                <div class="about-image" style="margin-top:30px;">
+                <div class="about-image" style="margin-top:30px; margin-left: 40px;">
                     <div class="about-carousel-alt fade-mode">
                         <div class="carousel-img-list">
                             <img src="1.jpg" alt="Group Photo 1" class="carousel-img-alt active">
@@ -82,17 +88,7 @@
                     </div>
                 </div>
             </div>
-            <div class="about-content" style="margin-top: -55px;">
-                <p><strong>1. Boryl reagents for organic synthesis, small molecule activation and catalysis.</strong></p>
-                <p>We are interested in the design and synthesis of organoboron compounds, which have potential applications in organic synthesis, small molecule activation and catalysis.</p>
-                <a href="boryl-research.html" style="text-decoration: none; color: inherit;">
-                    <div class="research-images" style="margin-top: 20px; text-align: center; cursor: pointer;">
-                        <img src="mols_1.jpg" alt="Chemical Structure 1" style="width: 230px; height: auto; margin: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 100%;">
-                        <img src="mols_2.jpg" alt="Chemical Structure 2" style="width: 230px; height: auto; margin: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 100%;">
-                        <img src="mols_3.jpg" alt="Chemical Structure 3" style="width: 400px; height: auto; margin: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 100%;">
-                    </div>
-                </a>
-            </div>
+
 
         </div>
     </section>
